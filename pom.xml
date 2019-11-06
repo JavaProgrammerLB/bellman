@@ -5,16 +5,27 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.yitianyigexiangfa</groupId>
-  <artifactId>bellman</artifactId>
+  <artifactId>bellman-parent</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
+  <name>bellman-parent</name>
+  <modules>
+    <module>bellman-core</module>
+    <module>bellman</module>
+  </modules>
+  <packaging>pom</packaging>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.7.9</version>
-    </dependency>
-  </dependencies>
+  <properties>
+    <slf4j-api.version>1.7.9</slf4j-api.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j-api.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 </project>
