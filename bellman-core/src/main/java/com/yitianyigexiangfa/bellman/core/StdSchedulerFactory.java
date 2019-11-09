@@ -8,13 +8,13 @@ public class StdSchedulerFactory {
 
     private static Scheduler scheduler;
 
-    private static  Object lock;
+    private Object lock;
 
     static {
        scheduler = new Scheduler();
     }
 
-    public static Scheduler getScheduler(){
+    public Scheduler getScheduler(){
         if(scheduler == null){
             synchronized (lock){
                 scheduler  = new Scheduler();
