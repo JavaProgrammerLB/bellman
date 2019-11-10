@@ -2,25 +2,35 @@ package com.yitianyigexiangfa.bellman.core;
 
 /**
  * @author Bill Lau
- * @date 2019-11-09
+ * @date 2019-11-10
  */
 public class JobBuilder {
 
-    private static String jobKey;
-
-    private static String groupKey;
+    private JobKey jk;
+    private Class jobClass;
 
     public static JobBuilder newJob(Class<? extends Job> jobClass){
-        return null;
+        JobBuilder jobBuilder = new JobBuilder();
+        jobBuilder.ofType(jobClass);
+        return jobBuilder;
     }
 
-    public static JobBuilder withIdentity(String jk, String gk){
-        jobKey = jk;
-        groupKey = gk;
-        return null;
+    public JobBuilder ofType(Class<? extends Job> jobClass){
+        this.jobClass = jobClass;
+        return this;
+    }
+
+    public JobBuilder withIdentity(String jobId, String jobKey){
+        JobKey jobK = new JobKey(jobId, jobKey);
+        jk = jobK;
+        return this;
     }
 
     public JobDetail build(){
-        return new JobDetail();
+        JobDetail jobDetail = new JobDetail();
+        jobDetail.setJk(jk);
+        jobDetail.setJobClass(jobClass);
+        return jobDetail;
     }
+
 }
