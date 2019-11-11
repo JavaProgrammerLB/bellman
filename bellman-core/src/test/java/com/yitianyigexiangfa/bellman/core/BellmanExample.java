@@ -3,6 +3,7 @@ package com.yitianyigexiangfa.bellman.core;
 import java.util.Date;
 
 import static com.yitianyigexiangfa.bellman.core.JobBuilder.*;
+import static com.yitianyigexiangfa.bellman.core.ScheduleBuilder.*;
 import static com.yitianyigexiangfa.bellman.core.TriggerBuilder.*;
 
 /**
@@ -19,7 +20,11 @@ public class BellmanExample {
         JobDetail jd = newJob(JobImpl1.class).withIdentity("job1", "group1").build();
         // 3. 使用TriggerBuilder创建Trigger
         Date runTime = new Date();
-        Trigger trigger = newTrigger().withIdentity("trigger1", "group1").startAt(runTime).build();
+        Trigger trigger = newTrigger()
+                .withIdentity("trigger1", "group1")
+                .withSchedule(simpleSchedule().withIntervalInSeconds(3).repeatForever())
+                .startAt(runTime)
+                .build();
         // 4. 配置scheduler
         scheduler.scheduleJob(jd, trigger);
         // 5. 启动作业

@@ -27,6 +27,10 @@ public class TriggerBuilder {
         return this;
     }
 
+    public TriggerBuilder withSchedule(ScheduleBuilder scheduleBuilder){
+        return this;
+    }
+
     public Trigger build(){
         Trigger trigger = new Trigger();
         trigger.setStartAt(startAt);
