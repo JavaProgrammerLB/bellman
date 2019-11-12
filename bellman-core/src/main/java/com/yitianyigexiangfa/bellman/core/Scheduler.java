@@ -20,7 +20,9 @@ public class Scheduler {
         triggerMap.put(triggerKey, trigger);
     }
 
-    public void start(){}
+    public void start(){
+
+    }
 
     public void shutdown(){
 
