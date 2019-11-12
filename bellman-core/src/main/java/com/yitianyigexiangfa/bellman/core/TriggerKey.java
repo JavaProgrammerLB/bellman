@@ -14,4 +14,9 @@ public class TriggerKey {
         this.triggerId = triggerId;
         this.grouopId = grouopId;
     }
+
+    @Override
+    public String toString() {
+        return "TK" + "-" + triggerId + "-" + grouopId;
+    }
 }

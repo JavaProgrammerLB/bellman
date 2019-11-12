@@ -14,4 +14,9 @@ public class JobKey {
         this.jobId = jobId;
         this.groupId = groupId;
     }
+
+    @Override
+    public String toString() {
+        return "JK" + jobId + "-" + groupId;
+    }
 }

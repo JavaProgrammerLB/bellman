@@ -28,6 +28,7 @@ public class TriggerBuilder {
     }
 
     public TriggerBuilder withSchedule(ScheduleBuilder scheduleBuilder){
+
         return this;
     }
 
